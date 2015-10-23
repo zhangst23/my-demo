@@ -1,0 +1,68 @@
+<!-- fullPage-demo.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fullPage-demo</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" type="text/css" href="./fullPage.js-master/jquery.fullPage.css" />
+	<script type="text/javascript" src="./fullPage.js-master/jquery.js"></script>
+	<script type="text/javascript" src="./fullPage.js-master/jquery.fullPage.min.js"></script>
+	<!-- jquery.easings.min.js 用于 easing 参数，也可以使用完整的 jQuery UI 代替，如果不需要设置 easing 参数，可去掉改文件 -->
+    <script type="text/javascript" src="./fullPage.js-master/jquery.easings.min.js"></script>
+    <!-- 如果 scrollOverflow 设置为 true，则需要引入 jquery.slimscroll.min.js，一般情况下不需要 -->
+    <script type="text/javascript" src="./fullPage.js-master/jquery.slimscroll.min.js"></script>
+
+
+</head>
+<body>
+	<ul id="nav">
+		<li class="item" class="active"><a href="">首页</a></li>
+		<li class="item"><a href="">Google</a></li>
+		<li class="item"><a href="">Apple</a></li>
+		<li class="item"><a href="">Facebook</a></li>
+		<li class="item"><a href="">Oculus VR</a></li>
+	</ul>
+
+
+
+	<div id="ido">
+		<div class="section section1">
+			<h1>page 1</h1>
+		</div>
+		<div class="section section2" style="text-align:center">
+			<h1 class="slide">page 2 - 1</h1>
+			<h1 class="slide">page 2 - 2</h1>
+			<h1 class="slide">page 2 - 3</h1>
+			<h1 class="slide">page 2 - 4</h1>
+			<h1 class="slide">page 2 - 5</h1>
+		</div>
+		<div class="section section3">
+			<h1>page 3</h1>
+		</div>
+		<div class="section section4">
+			<h1>page 4</h1>
+		</div>
+		<div class="section section5">
+			<h1>page 5</h1>
+		</div>
+		<div class="section section6">
+			<h1>page 6</h1>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			$("#ido").fullpage(
+				{
+					continuousVertical: true,  //循环演示
+					
+
+					// 导航
+					'navigation': true,
+				});
+		});
+	</script>
+
+
+</body>
+</html>

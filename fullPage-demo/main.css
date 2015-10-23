@@ -1,0 +1,70 @@
+    body
+    {
+        color: #FFFFFF;
+    }
+    h1
+    {
+        text-align: center;
+    }
+    .section1
+    {
+        background-color: #BFDA00;
+    }
+    .section2
+    {
+        background-color: #2EBE21;
+    }
+    .section3
+    {
+        background-color: #2C3E50;
+    }
+    .section4
+    {
+        background-color: #FF9900;
+    }
+    .section5 
+    { 
+        background-color: #FF3922;        
+    }
+    .section6 
+    { 
+        background: url(http://bizhi.4493.com/uploads/allimg/140804/2-140P41F247.jpg) 50%;
+    }  
+
+    #nav 
+    { 
+        margin: 0; 
+        padding: 0; 
+        position: fixed; 
+        left: 10px; 
+        top: 10px; 
+        list-style-type: none; 
+        z-index: 70;
+    }
+    #nav li 
+    { 
+        float: left; 
+        margin:  0 10px 0 0; 
+        font-size: 14px;
+    }
+    #nav a 
+    { 
+        float: left; 
+        padding: 10px 20px; 
+        background-color: #fff; 
+        color: #333; 
+        text-decoration: none;
+    }
+    #nav .active a 
+    { 
+        color: #fff; 
+        background-color: #333;
+    }
+    
+
+
+
+
+
+
+
