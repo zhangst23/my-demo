@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ywlist3</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to '鹦鹉学习首页', lists_path, class: "navbar-brand" %>
+      <%= link_to ' 新建清单+', new_list_path, class: "navbar-brand btn btn-info"  %>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="搜索清单">
+          </div>
+          <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+    </div>
+
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <% if user_signed_in? %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <button type="button" class="btn btn-default navbar-btn navbar-right">退出</button>
+            <% end %>
+              <div class="navbar-right navbar-brand"><%= current_user.email %>&nbsp</div>
+          <% else %>
+              <%= link_to new_user_session_path do %>
+                <button type="button" class="btn btn-default navbar-btn">登陆</button>
+              <% end %>
+              <%= link_to new_user_registration_path do %>
+                <button type="button" class="btn btn-default navbar-btn">注册</button>
+              <% end %>
+          <% end %>
+    </div><!-- /.navbar-collapse -->
+
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>

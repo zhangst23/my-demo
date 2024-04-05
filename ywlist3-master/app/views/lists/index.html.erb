@@ -1,0 +1,46 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="article panel panel-default">
+      <div class="panel-heading clearfix">
+        <p>
+        <%= link_to '最新', lists_path, class: 'active' %> /
+        <%= link_to '精华' %>
+        </p>
+      </div>
+
+      <% @lists.each do |list| %>
+        <div class="panel-body ">
+          <h3><%= link_to list.title, list %></h3>
+          <%=p= truncate(list.content, length: 80)%>
+                        
+        </div>
+      <% end %>
+
+      <div class="panel-footer">
+        <%= paginate @lists %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container"> 
+    <div class="row">
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">标签云</div>
+          <div class="panel-body">
+            <div id="tag_cloud">
+              <% tag_cloud(@tags, %w(s m l)) do |tag, css_class| %>
+                <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+              <% end %>
+            </div>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+

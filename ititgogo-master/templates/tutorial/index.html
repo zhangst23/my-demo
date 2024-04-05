@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}学习指南{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+	<ul>
+		{% for tutorial in all_tutorials %}
+			<li>
+				<a href="{% url 'tutorial:detail' tutorial.id %}">{{ tutorial.title }}</a>
+			</li>
+		{% empty %}
+			<div class="no-tutorial">暂时还未填写语言</div>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

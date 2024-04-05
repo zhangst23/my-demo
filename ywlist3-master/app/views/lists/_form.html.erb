@@ -1,0 +1,63 @@
+<%= simple_form_for @list do |f| %>
+    <% if @list.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+          <ul>
+          <% @list.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="input-group">      
+      <%= f.input :title, label: '标题', placeholder: "填写清单标题" %>
+      <%= f.input :tag_list, label: '标签', :hint => "请填写标签,多标签用逗号(英文输入法下的)隔开." %>
+    </div>
+
+    <div class="list-body"> 
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active list_write"><a href="#list_write" aria-controls="list_write" role="tab" data-toggle="tab">编辑</a></li>
+
+          <li role="presentation" class="list_preview"><a href="#list_preview" aria-controls="list_preview" role="tab" data-toggle="tab" data-behaviors="preview">预览</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="field tab-pane active" id="list_write">
+            <%= f.input :content, label: '兼容 Markdown 格式', class: "text_area form-control", rows: 30  %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="list_preview">
+            #
+          </div> 
+        </div>
+    </div> 
+    <br>
+
+    <div class="actions">
+      <%= f.submit :创建, class: "btn btn-primary" %>
+    </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

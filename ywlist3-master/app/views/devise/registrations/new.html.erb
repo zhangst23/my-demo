@@ -1,0 +1,30 @@
+<h2 class="col-md-offset-4">注册</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			  <%= f.error_notification %>
+
+			  <div class="form-inputs">
+			    <%= f.input :email, required: true, autofocus: true, placeholder: "输入姓名" %>
+			    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "输入密码" %>
+			    <%= f.input :password_confirmation, required: true, placeholder: "再次输入密码" %>
+
+			  </div>
+
+			  <div class="form-actions">
+			    <%= f.button :submit, "注册" %>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">			
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
+</div>
+

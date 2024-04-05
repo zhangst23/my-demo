@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}编程语言{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+	<ul>
+		{% for language in all_language %}
+			<li>
+				<a href="{% url 'language:detail' language.id %}">{{ language.name }}</a>
+			</li>
+		{% empty %}
+			<div class="no-language">暂时还未填写语言</div>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

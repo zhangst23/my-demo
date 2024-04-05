@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}手册{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+	<ul>
+		{% for shouce in all_shouce %}
+			<li>
+				<a href="{{ shouce.url }}" target="_blank">{{ shouce.name }}</a>
+			</li>
+			<p>{{ shouce.desc }}</p>
+		{% empty %}
+			<div class="no-language">暂时还未填写语言</div>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
