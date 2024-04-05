@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}医院详情页{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+
+<h1>{{ hospital.name }}</h1>
+<span>{{ hospital.name_en }}</span>
+<div class="row">
+  <div class="col-md-8">
+  	<p>{{ hospital.address }}</p>
+  	<p>{{ hospital.project }}</p>
+  	<p>{{ hospital.desc }}</p>
+  	<p>{{ hospital.web }}</p>
+
+  </div>
+  <div class="col-md-4">
+  	<img src="/media/{{ hospital.logo }}" alt="{{ hospital.name }}logo" class="avatar">
+  </div>
+</div>
+
+
+
+<div>
+
+
+
+{% endblock main %}
+
+
+{% block js %}
+
+
+{% endblock %}

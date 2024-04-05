@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+<div class="col-md-8">
+
+	<div class="crumb">
+		<ol class="breadcrumb">
+		  <li><a href="{% url 'yanji:index' %}">首页</a></li>
+		  <li><a href="{% url 'yanji:actor_list' %}">演员</a></li>
+		  <li class="active">{{ actor.name }}</li>
+		</ol>
+	</div>
+
+
+
+
+
+	<h2 class="name">
+		{{ actor.name }}
+	</h2>
+	<br>
+	<div>
+		<p>{{ actor.ptitle }}</p>
+	</div>
+	<div class="touxiang">
+		<img src="/upload/{{ actor.touxiang }}" alt="{{ actor.name }}">
+	</div>
+
+	<br>
+	<h4>演技视频：</h4>
+	<div class="row">
+		{% for yanji in yanji_list %}
+		  <div class="col-xs-6 col-md-3">
+		    	<a class="thumbnail" href="{{ tag.yanji.get_absolute_url }}">
+			      <img src="/upload/{{ tag.yanji.fengmian }}" alt="{{ tag.yanji }}">
+			      <br>
+			      <p>{{ tag.yanji }}</p>
+		      </a>
+		    
+		  </div>
+	  {% empty %}
+			<div class="no-fangji">暂时无视频</div>
+		{% endfor %}
+	</div>
+	
+
+	<br>
+	<h4>介绍：</h4>
+
+
+	<br>
+	<h4>评论：</h4>
+
+</div>
+{% endblock main %}
+
+
+
+

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load yanji_tags %}
+
+
+
+{% block main %}
+<div class="col-md-8">
+
+	<div class="crumb">
+		<ol class="breadcrumb">
+		  <li><a href="{% url 'yanji:index' %}">首页</a></li>
+		  <li><a href="{% url 'yanji:drama_list' %}">剧本</a></li>
+		  <li class="active">{{ drama.name }}</li>
+		</ol>
+	</div>
+
+
+
+
+
+	<h2 class="name">
+		{{ drama.name }}
+	</h2>
+	<br>
+	<div>
+		<p>{{ drama.movietv }}</p>
+		<p>{{ drama.dramatype }}</p>
+	</div>
+	<div class="content">
+		{{ drama.content }}
+	</div>
+
+	<br>
+	<h4>台词：</h4>
+	<div class="row">
+		{% get_taicis as taici_list %}
+
+		{% for taici in taici_list %}
+		    <a href="{% url 'yanji:taici' taici.pk %}">{{ drama.taici }}</a>
+		{% empty %}
+					<div class="no-actor">暂时无数据</div>
+		{% endfor %} 
+	</div>
+
+	<br>
+	<h4>评论：</h4>
+
+</div>
+{% endblock main %}
+
+
+
+

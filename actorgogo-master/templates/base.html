@@ -1,0 +1,86 @@
+{% load staticfiles %}
+{% load yanji_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}</title>
+
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://cdn.bootcss.com/video.js/6.2.5/alt/video-js-cdn.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/Swiper/4.0.7/css/swiper.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/Swiper/4.0.7/js/swiper.js"></script>
+
+
+	<script src="https://cdn.bootcss.com/video.js/6.2.5/alt/video.novtt.js"></script>
+
+
+
+
+	<style>
+		.content-body{
+			margin:0 30px;
+		}
+		.navbar-brand {
+			margin-left: 20px;
+		}
+		.swiper-container {
+		    width: 95%;
+		    height: 380px;
+		}  
+		.swiper-slide{
+			width: 250px;
+    		height: 380px;
+    	}
+		.swiper-slide img{
+			width: 250px;
+    		height: 350px;
+    	}
+    	.actor_list_touxiang {
+    		height: 330px;
+    	}
+  
+	</style>
+	{% block custom_css %}{% endblock %}
+</head>
+<body>
+	
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'yanji:index' %}">演技派</a>
+    </div>
+	  <div class="container">
+	    <p class="navbar-text navbar-right"><a href="{% url 'yanji:index' %}" class="navbar-link">演技</a></p>
+	    <p class="navbar-text navbar-right"><a href="{% url 'yanji:actor_list' %}" class="navbar-link">演员</a></p>
+	    <p class="navbar-text navbar-right"><a href="{% url 'yanji:drama_list' %}" class="navbar-link">剧本</a></p>
+	    <p class="navbar-text navbar-right"><a href="{% url 'yanji:taici_list' %}" class="navbar-link">台词</a></p>
+	    <p class="navbar-text navbar-right"><a href="#" class="navbar-link">资讯</a></p>
+	  </div>
+	</nav>
+
+
+	<div class="content-body">
+		<div class="row">
+		
+		  <div class="col-md-12">
+				<div class="main">
+					{% block main %}
+			  	{% endblock main %}		
+				</div>  	
+		  </div>
+
+
+		</div>
+
+
+
+
+
+	</div>
+
+{% include 'footer.html' %}
+
+
+</body>
+</html>

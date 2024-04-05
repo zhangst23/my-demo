@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}首页{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+
+<h1>{{ school.name }}</h1>
+<div class="row">
+  <div class="col-md-8">
+  	{{ school.desc }}
+  </div>
+  <div class="col-md-4">
+  	<img src="/upload/{{ school.logo }}" alt="" class="avatar">
+  </div>
+</div>
+
+
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">学校概况</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">招生就业</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">图片</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">视频</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    	<table class="table table-striped">
+  			<tbody>
+  				<tr>
+	          <th scope="row">学校名称</th>
+	          <td>{{ school.name }}</td>
+	          <th scope="row">学校分类</th>
+	          <td>{{ school.category }}</td>
+	          <th scope="row">英文名</th>
+	          <td>{{ school.alias }}</td>
+	          <th scope="row">网赚</th>
+	          <td>{{ school.begintime }}</td>
+	        </tr>
+	   
+	        <tr>
+	          <th scope="row">{{ school.provice }}</th>
+	          <td>{{ school.begintime }}</td>
+	          <th scope="row">{{ school.position }}</th>
+	          <td>{{ school.xiaoxun }}</td>
+	          <th scope="row">{{ school.provice }}</th>
+	          <td>{{ school.guanwang }}</td>
+	        </tr>
+  			</tbody>
+			</table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+    	<div class="text">
+    		<p>{{ school.zhaosheng }}</p>
+    	</div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+    	<p>历史问题:{{ school.story }}</p>
+    	
+    </div>
+<!--     <div role="tabpanel" class="tab-pane" id="settings">
+    	{{ school.zhuanye }}
+    </div>
+    <div role="tabpanel" class="tab-pane" id="settings">
+    	{{ school.zhaosheng }}
+    </div> -->
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block js %}
+
+$('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+{% endblock %}

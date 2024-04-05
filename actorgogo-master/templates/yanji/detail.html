@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+<div class="col-md-8">
+
+	<div class="crumb">
+		<ol class="breadcrumb">
+		  <li><a href="{% url 'yanji:index' %}">首页</a></li>
+		  <li><a href="{% url 'yanji:index' %}">演技</a></li>
+		  <li class="active">{{ yanji.title }}</li>
+		</ol>
+	</div>
+
+
+	<!-- 16:9 aspect ratio -->
+	<div class="embed-responsive embed-responsive-16by9">
+	  <iframe class="embed-responsive-item" src="http://7xm73y.com1.z0.glb.clouddn.com/video/medical/3D%20Medical%20Animation%20-%20Congestive%20Heart%20Failure.mp4
+	"></iframe>
+	</div>
+
+
+
+	<h2 class="name">
+		{{ yanji.title }}
+	</h2>
+	<br>
+	<div>
+		<span>{{ yanji.ctime }}</span>
+		<span><a href="{% url 'yanji:category' yanji.category.pk %}">{{ yanji.category }}</a></span>
+	</div>
+	
+	<br>
+	<div>标签：{{ yanji.tag }}</div>
+	<br>
+	<h4>演员：</h3>
+	<div>{{ yanji.authors }}</div>
+	<h4>详细内容：</h3>
+	<div>{{ yanji.content }}</div>
+
+	<br>
+
+
+	<br>
+	<h4>评论：</h4>
+
+</div>
+{% endblock main %}
+
+
+
+

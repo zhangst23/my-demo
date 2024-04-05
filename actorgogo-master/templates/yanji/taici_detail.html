@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+<div class="col-md-8">
+
+	<div class="crumb">
+		<ol class="breadcrumb">
+		  <li><a href="{% url 'yanji:index' %}">首页</a></li>
+		  <li><a href="{% url 'yanji:taici_list' %}">台词</a></li>
+		  <li class="active">{{ taici.title }}</li>
+		</ol>
+	</div>
+
+
+
+
+
+	<h2 class="name">
+		{{ taici.title }}
+	</h2>
+	<br>
+	<div>
+		<p>{{ taici.movietv }}</p>
+		<p>{{ taici.ctime }}</p>
+	</div>
+	<div class="content">
+		{{ taici.content }}
+	</div>
+
+	<br>
+	<h4>评论：</h4>
+
+</div>
+{% endblock main %}
+
+
+
+

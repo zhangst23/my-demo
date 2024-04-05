@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}首页{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+	<ul>
+		{% for school in all_schools %}
+			<li>
+					<p class="school-name"><a href="{% url 'school:detail' school.id %}">{{ school.name }}</a></p>
+			</li>
+		{% endfor %}
+
+
+	</ul>
+
+{% endblock %}

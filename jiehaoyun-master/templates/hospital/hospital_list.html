@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}首页{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block main %}
+	
+	<ul>
+		{% for hospital in all_hospital %}
+			<li>
+				<p class="hospital-name"><a href="{% url 'hospital:hospital_detail' hospital.id %}">{{ hospital.name }}</a></p>
+			</li>
+		{% endfor %}
+
+
+	</ul>
+
+{% endblock %}

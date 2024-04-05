@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load yanji_tags %}
+
+
+
+{% block main %}
+
+
+	<h3>人生如戏，全靠演技</h3>
+	<br><br>
+
+
+
+	<div>
+		<span><strong>分类:</strong></span>
+
+		{% get_categories as category_list %}
+		<ul class="nav nav-pills">
+			{% for category in category_list %}
+			<li role="presentation">
+				<a href="{% url 'yanji:category' category.pk %}">{{ category.name }}</a>
+			  <!-- <a href="{{ category.get_absolute_url }}">{{ category.name }}</a> -->
+			</li>
+			{% endfor %}
+		</ul>
+
+	</div>
+
+<br>
+	<div class="row">
+		{% for yanji in yanji_list %}
+		  <div class="col-xs-6 col-md-3">
+		    	<a class="thumbnail" href="{{ yanji.get_absolute_url }}">
+			      <img src="/upload/{{ yanji.fengmian }}" alt="{{ yanji.title }}"/>
+			      <br>
+			      <p>{{ yanji.title }}</p>
+		      </a>
+		    
+		  </div>
+	  {% empty %}
+			<div class="no-fangji">暂时无视频</div>
+		{% endfor %}
+	</div>
+
+	<div>
+		{% get_tags as tag_list %}
+		<p>热门标签：</p>
+
+		{% for tag in tag_list %}
+		    <a href="{% url 'yanji:tag' tag.pk %}">{{ tag.name }}</a>
+		{% endfor %}
+	</div>
+		
+
+
+	<h3>国家一级演员</h3>
+	<br><br>
+
+	<div class="swiper-container">
+			{% get_actors as actor_list %}
+	    <div class="swiper-wrapper">
+	    	{% for actor in actor_list %}	        
+	        <a class="thumbnail" href="{% url 'yanji:actor' actor.pk %}">
+	        	<div class="swiper-slide">
+				      <img src="/upload/{{ actor.touxiang }}" alt="{{ actor.name }}"/>
+				      <!-- <br> -->
+				      <p>{{ actor.name }}</p>
+				 </div>
+			</a>	        
+	        {% empty %}
+				<div class="no-actor">暂时无数据</div>
+			{% endfor %} 
+
+	    </div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	    
+	    <!-- 如果需要导航按钮 -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	  
+
+	</div>
+
+	<h3>剧本</h3>
+	<br><br>
+
+
+	<div>
+		{% get_dramas as drama_list %}
+
+		{% for drama in drama_list %}
+		    <a href="{% url 'yanji:drama' drama.pk %}">{{ drama.name }}</a>
+		{% empty %}
+					<div class="no-actor">暂时无数据</div>
+		{% endfor %} 
+	</div>
+
+
+
+
+	<h3>台词</h3>
+	<br><br>
+
+	<div>
+		{% get_taicis as taici_list %}
+
+		{% for taici in taici_list %}
+		    <a href="{% url 'yanji:taici' taici.pk %}">{{ taici.title }}</a>
+		{% empty %}
+					<div class="no-actor">暂时无数据</div>
+		{% endfor %} 
+	</div>
+
+
+	<h3>资讯</h3>
+	<br><br>
+
+
+
+{% endblock main %}
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'vertical',
+    loop: true,
+    
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }，
+    
+
+  })        
+</script>
